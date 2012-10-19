@@ -1,9 +1,11 @@
 package Tapper::Action;
+# git description: v4.0.1-6-gf8cdbf1
+
 BEGIN {
   $Tapper::Action::AUTHORITY = 'cpan:AMD';
 }
 {
-  $Tapper::Action::VERSION = '4.0.1';
+  $Tapper::Action::VERSION = '4.1.0';
 }
 # ABSTRACT: Tapper - Daemon and plugins to handle MCP actions
 
@@ -43,30 +45,34 @@ sub run
         my ($self) = @_;
         Log::Log4perl->init($self->cfg->{files}{log4perl_cfg});
 
- ACTION:
-        while (my $messages = $self->get_messages) {
-                while (my $message = $messages->next) {
-                        if (my $action = $message->message->{action}) {
-                                my $plugin         = $self->cfg->{action}{$action}{plugin};
-                                my $plugin_options = $self->cfg->{action}{$action}{plugin_options};
-                                my $plugin_class   = "Tapper::Action::Plugin::${action}::${plugin}";
-                                load_class($plugin_class);
+        try {
+        ACTION:
+                while (my $messages = $self->get_messages) {
+                        while (my $message = $messages->next) {
+                                if (my $action = $message->message->{action}) {
+                                        my $plugin         = $self->cfg->{action}{$action}{plugin};
+                                        my $plugin_options = $self->cfg->{action}{$action}{plugin_options};
+                                        my $plugin_class   = "Tapper::Action::Plugin::${action}::${plugin}";
+                                        load_class($plugin_class);
 
-                                if ($@) {
-                                        $self->log->error( "Could not load $plugin_class: $@" );
-                                } else {
-                                        try{
-                                                no strict 'refs'; ## no critic
-                                                $self->log->info("Call ${plugin_class}::execute()");
-                                                &{"${plugin_class}::execute"}($self, $message->message, $plugin_options);
-                                        } catch {
-                                                $self->log->error("Error occured: $_");
+                                        if ($@) {
+                                                $self->log->error( "Could not load $plugin_class: $@" );
+                                        } else {
+                                                try{
+                                                        no strict 'refs'; ## no critic
+                                                        $self->log->info("Call ${plugin_class}::execute()");
+                                                        &{"${plugin_class}::execute"}($self, $message->message, $plugin_options);
+                                                } catch {
+                                                        $self->log->error("Error occured: $_");
+                                                }
                                         }
                                 }
+                                $message->delete;
                         }
-                        $message->delete;
                 }
-        }
+        } catch {
+                $self->log->error("Caugth exception: $_");
+        };
         return;
 }
 

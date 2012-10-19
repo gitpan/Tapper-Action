@@ -3,7 +3,7 @@ BEGIN {
   $Tapper::Action::Plugin::updategrub::OSRC::AUTHORITY = 'cpan:AMD';
 }
 {
-  $Tapper::Action::Plugin::updategrub::OSRC::VERSION = '4.0.1';
+  $Tapper::Action::Plugin::updategrub::OSRC::VERSION = '4.1.0';
 }
 
 use strict;

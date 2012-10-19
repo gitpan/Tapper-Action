@@ -1,4 +1,10 @@
+
 Revision history for Tapper-Action
+
+4.1.0     2012-10-19
+        * PostgreSQL support
+        - rename USER into OWNER
+        - [FIX] exceptions
 
 4.0.1     2012-05-16
         - [FEAT] understand new action 'updategrub'

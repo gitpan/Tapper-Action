@@ -3,7 +3,7 @@ BEGIN {
   $Tapper::Action::Plugin::resume::OSRC::AUTHORITY = 'cpan:AMD';
 }
 {
-  $Tapper::Action::Plugin::resume::OSRC::VERSION = '4.0.1';
+  $Tapper::Action::Plugin::resume::OSRC::VERSION = '4.1.0';
 }
 
 use strict;
