@@ -31,18 +31,21 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "App::Daemon" => 0,
     "Class::Load" => 0,
+    "Fcntl" => 0,
     "File::Copy" => 0,
+    "LockFile::Simple" => 0,
     "Log::Log4perl" => 0,
     "Moose" => 0,
-    "Tapper::Base" => 0,
+    "MooseX::Log::Log4perl" => 0,
     "Tapper::Config" => 0,
     "Tapper::Model" => 0,
     "Try::Tiny" => 0,
     "YAML::Syck" => 0,
+    "common::sense" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "4.1.0",
+  "VERSION" => "4.1.1",
   "test" => {
     "TESTS" => "t/*.t"
   }

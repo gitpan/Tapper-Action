@@ -11,10 +11,12 @@ dist.ini
 lib/Tapper/Action.pm
 lib/Tapper/Action/Plugin/resume/OSRC.pm
 lib/Tapper/Action/Plugin/updategrub/OSRC.pm
+lib/Tapper/Base.pm
 t/00-load.t
 t/bin/reset_testfile
 t/files/grubfile
 t/fixtures/testrundb/testrun_with_preconditions.yml
+t/misc_files/sleep.sh
 t/pod-coverage.t
 t/pod.t
 t/release-eol.t
@@ -23,5 +25,6 @@ t/release-pod-coverage.t
 t/release-pod-syntax.t
 t/tapper-action-grub-osrc.t
 t/tapper-action.t
+t/tapper-base.t
 t/tapper.cfg
 xt/critic.t

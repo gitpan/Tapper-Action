@@ -1,9 +1,9 @@
 package Tapper::Action::Plugin::updategrub::OSRC;
 BEGIN {
-  $Tapper::Action::Plugin::updategrub::OSRC::AUTHORITY = 'cpan:AMD';
+  $Tapper::Action::Plugin::updategrub::OSRC::AUTHORITY = 'cpan:TAPPER';
 }
 {
-  $Tapper::Action::Plugin::updategrub::OSRC::VERSION = '4.1.0';
+  $Tapper::Action::Plugin::updategrub::OSRC::VERSION = '4.1.1';
 }
 
 use strict;

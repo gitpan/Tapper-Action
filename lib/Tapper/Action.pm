@@ -1,11 +1,11 @@
 package Tapper::Action;
-# git description: v4.0.1-6-gf8cdbf1
+# git description: v4.1.0-29-g43bed4f
 
 BEGIN {
-  $Tapper::Action::AUTHORITY = 'cpan:AMD';
+  $Tapper::Action::AUTHORITY = 'cpan:TAPPER';
 }
 {
-  $Tapper::Action::VERSION = '4.1.0';
+  $Tapper::Action::VERSION = '4.1.1';
 }
 # ABSTRACT: Tapper - Daemon and plugins to handle MCP actions
 

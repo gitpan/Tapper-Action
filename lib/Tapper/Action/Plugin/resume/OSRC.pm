@@ -1,9 +1,9 @@
 package Tapper::Action::Plugin::resume::OSRC;
 BEGIN {
-  $Tapper::Action::Plugin::resume::OSRC::AUTHORITY = 'cpan:AMD';
+  $Tapper::Action::Plugin::resume::OSRC::AUTHORITY = 'cpan:TAPPER';
 }
 {
-  $Tapper::Action::Plugin::resume::OSRC::VERSION = '4.1.0';
+  $Tapper::Action::Plugin::resume::OSRC::VERSION = '4.1.1';
 }
 
 use strict;
